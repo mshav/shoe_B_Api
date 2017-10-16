@@ -1,0 +1,22 @@
+{
+  "name": "shoe_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express-handlebars": "^3.0.0",
+    "express-server": "^0.7.0",
+    "express-session": "^1.15.6",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.12.1",
+    "start": "^5.1.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
