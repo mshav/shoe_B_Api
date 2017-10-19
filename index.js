@@ -30,12 +30,12 @@ app.use(session({
   }
 }));
 
-app.get("/api/shoe", shoeRoutes.home)
-app.get("/api/shoe/brand/:brandname",shoeRoutes.home)
-app.get("/api/shoe/size/:size"	,shoeRoutes.home)
-app.get('/api/shoe/brand/:brandname/size/:size',shoeRoutes.home)
+app.get("/shoe/api", shoeRoutes.home)
+app.get("/api/shoe/brand/:brandname",shoeRoutes.brandFunction)
+app.get("/api/shoe/size/:size"	,shoeRoutes.sizeFunction)
+app.get('/api/shoe/brand/:brandname/size/:size',shoeRoutes.sizeAndbrand)
 app.post("/api/shoe",shoeRoutes.add);
-
+app.post("/api/shoes/sold/:id",shoeRoutes.stockReduce);
 
 
 var port = process.env.PORT|| 3001;
