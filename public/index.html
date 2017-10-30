@@ -15,30 +15,37 @@
 
 <body>
   <h1>My Shoe_Api</h1>
-  <script class="mysecTemplate" type="text/x-handlebars-template">
-  <table border="2px" align='center'>
-
-      <thead>
-        <tr>
-          <th>brand</th>
-          <th>color</th>
-          <th>size</th>
-          <th>in_stock</th>
-          <th>price</th>
-        </tr>
-      </thead>
-      {{#each shoedata}}
-      <tr>
-        <td>{{brand}}</td>
-        <td>{{color}}</td>
-        <td>{{size}}</td>
-        <td>{{in_stock}}</td>
-        <td>{{price}}</td>
-      </tr>
-      {{/each}}
-  </script>
-  <button id="button" type="add">add</button>
   <div id="showTable"></div>
+  <script class="mysecTemplate" type="text/x-handlebars">
+         <table border="2px" align='center'>
+
+           <thead></thead>
+        <tr>
+         <th>brand</th>
+        <th>color</th>
+       <th>size</th>
+       <th>price</th>
+       <th>in_stock</th>
+     </tr>
+     {{#each shoedata}}
+     <tr>
+       <td>{{brand}}</td>
+       <td>{{color}}</td>
+       <td>{{size}}</td>
+       <td>{{price}}</td>
+       <td>{{in_stock}}</td>
+     </tr>
+     {{/each}}
+
+   </script>
+   <br>
+   <br>
+   brand:<input   id="brand" type="text"  value=""></input>
+   color:<input   id="color" type="text"  value=""></input>
+   size:<input   id="size" type="text"  value=""></input>
+   price:<input   id="price" type="text"  value=""></input>
+   in_stock:<input   id="in_stock" type="text"  value=""></input>
+  <button id="add" type="submit">add</button>
 <script src="/shoe.js"></script>
 
 </html>
