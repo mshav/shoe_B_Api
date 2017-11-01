@@ -8,10 +8,14 @@ var color = document.getElementById('color')
 var size = document.getElementById('size')
 var price = document.getElementById('price')
 var in_stock = document.getElementById('in_stock')
+var myTemplatedropdown = document.querySelector(".myTemplatedropdown").innerHTML;
+var myDrop = Handlebars.compile(myTemplatedropdown);
+var drop = document.getElementById('drop')
+
 
       $.ajax({
         type: "GET",
-        // url: '/shoe/api',
+        url: '/shoe/api',
         dataType: 'json',
         success: function(data) {
           console.log(data);
@@ -53,13 +57,14 @@ shoedata: data.data
 
 })
 
-
-
-
-
-
-
 })
+
+
+
+
+
+
+
 // window.location.reload(1)
 
 })

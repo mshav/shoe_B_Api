@@ -16,6 +16,7 @@
 <body>
   <h1>My Shoe_Api</h1>
   <div id="showTable"></div>
+
   <script class="mysecTemplate" type="text/x-handlebars">
          <table border="2px" align='center'>
 
@@ -32,7 +33,7 @@
        <td>{{brand}}</td>
        <td>{{color}}</td>
        <td>{{size}}</td>
-       <td>{{price}}</td>
+       <td>R{{price}}</td>
        <td>{{in_stock}}</td>
      </tr>
      {{/each}}
@@ -40,12 +41,24 @@
    </script>
    <br>
    <br>
-   brand:<input   id="brand" type="text"  value=""></input>
-   color:<input   id="color" type="text"  value=""></input>
-   size:<input   id="size" type="text"  value=""></input>
-   price:<input   id="price" type="text"  value=""></input>
+   brand:<input   id="brand" type="text"  value=""></input><br><br>
+   color:<input   id="color" type="text"  value=""></input><br><br>
+   size:<input   id="size" type="text"  value=""></input><br><br>
+   price:<input   id="price" type="text"  value=""></input><br><br>
    in_stock:<input   id="in_stock" type="text"  value=""></input>
   <button id="add" type="submit">add</button>
+  <br>
+  <br>
+   <script class="myTemplatedropdown" type="text/x-handlebars">
+      <select class="brand">brand
+      {{#each shoe}}
+            <option>{{brand}}</option>
+      {{/each}}
+
+        </select>
+        </script>
+        <div id="drop"></div>
+        <button id="addbutton">Filter</button>
 <script src="/shoe.js"></script>
 
 </html>
