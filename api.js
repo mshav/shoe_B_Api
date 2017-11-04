@@ -133,3 +133,31 @@ return {
 
 }
 }
+// $("#search").on("click", function(){
+//   var inputBox = document.querySelector('.inputBox')
+//   var brandVal = inputBox.value;
+// $.ajax({
+// type:"GET",
+// url:"/api/shoe/brand/" + brandVal,
+// dataType: "json",
+// success: function(data){
+// drop.innerHTML = Table({
+//
+// shoe:data.data
+//
+//
+// })
+//
+//
+//
+// }
+//
+//
+//
+//
+// })
+//
+//
+//
+//
+// })

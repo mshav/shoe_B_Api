@@ -8,19 +8,36 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-</body>
+
+
+
+
   <title>shoe_api</title>
+  <style>
+#myDIV {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+h1{
+  text-align: center;
+}
+</style>
 </head>
 
 <body>
   <h1>My Shoe_Api</h1>
   <div id="showTable"></div>
 
-  <script class="mysecTemplate" type="text/x-handlebars">
-         <table border="2px" align='center'>
-
-           <thead></thead>
+           <!-- <thead></thead>
         <tr>
          <th>brand</th>
         <th>color</th>
@@ -36,29 +53,116 @@
        <td>R{{price}}</td>
        <td>{{in_stock}}</td>
      </tr>
-     {{/each}}
+     {{/each}} -->
 
+
+   <script class="mysecTemplate" type="text/x-handlebars">
+     <table border="2px" align='center'>
+
+    <div class="container">
+   <table class="table table-striped">
+   <thead>
+     <tr>
+       <th>Brand</th>
+       <th>Color</th>
+       <th>Size</th>
+       <th>Price</th>
+       <th>In_Stock</th>
+     </tr>
+   </thead>
+   <tbody>
+     {{#each shoedata}}
+     <tr>
+       <td>{{brand}}</td>
+       <td>{{color}}</td>
+       <td>{{size}}</td>
+       <td>R{{price}}</td>
+       <td>{{in_stock}}</td>
+     </tr>
+     <tr>
+       <td>Mary</td>
+       <td>Moe</td>
+       <td>mary@example.com</td>
+     </tr>
+     <tr>
+       <td>July</td>
+       <td>Dooley</td>
+       <td>july@example.com</td>
+     </tr>
+   </tbody>
+ </table>
+</div>
+</script>
+   <br>
+   <br>
+
+
+   <button onclick="myFunction()">add stock</button>
+
+   <div id="myDIV">
+
+     brand:<input   id="brand" type="text"  value="" required=""></input><br><br>
+     color:<input   id="color" type="text"  value="" required=""></input><br><br>
+     size:<input   id="size" type="text"  value="" required=""></input><br><br>
+     price:<input   id="price" type="text"  value="" required=""></input><br><br>
+     in_stock:<input   id="in_stock" type="text"  value="" required=""></input>
+     <button id="add" type="submit" required="">add</button>
+   </div>
+
+   <p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
+
+   <script>
+   function myFunction() {
+       var x = document.getElementById("myDIV");
+       if (x.style.display === "none") {
+           x.style.display = "block";
+       } else {
+           x.style.display = "none";
+       }
+   }
    </script>
-   <br>
-   <br>
-   brand:<input   id="brand" type="text"  value=""></input><br><br>
-   color:<input   id="color" type="text"  value=""></input><br><br>
-   size:<input   id="size" type="text"  value=""></input><br><br>
-   price:<input   id="price" type="text"  value=""></input><br><br>
-   in_stock:<input   id="in_stock" type="text"  value=""></input>
-  <button id="add" type="submit">add</button>
-  <br>
-  <br>
-   <script class="myTemplatedropdown" type="text/x-handlebars">
-      <select class="brand">brand
-      {{#each shoe}}
-            <option>{{brand}}</option>
-      {{/each}}
 
-        </select>
-        </script>
-        <div id="drop"></div>
-        <button id="addbutton">Filter</button>
+
+
+
+
+
+  <br>
+  <br>
+  <button id="search" type="button" name="search">search:brand</button>
+  <input id="inputBox" type="text" value=""></input>
+
+   <button id="searchS" type="button" name="search">search:size</button>
+  <input id="inputSize" type="text" value=""></input>
+
+  <div id="brandshow"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="/shoe.js"></script>
 
+</body>
 </html>
