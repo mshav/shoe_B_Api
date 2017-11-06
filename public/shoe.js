@@ -56,8 +56,11 @@ shoedata: data.data
 })
 
 })
+//search button
 $("#search").on("click", function(){
+  //text box
    var inputBox = document.querySelector('#inputBox')
+   //pass the text-box variable
    var brandVal = inputBox.value;
  $.ajax({
  type:"GET",
@@ -65,6 +68,7 @@ $("#search").on("click", function(){
  dataType: "json",
 success: function(data){
  showTable.innerHTML = Table({
+
  shoedata:data
  })
 }

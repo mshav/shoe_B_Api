@@ -161,3 +161,29 @@ return {
 //
 //
 // })
+
+// <!-- <button onclick="myFunction()">add stock</button>
+//
+// <div id="myDIV">
+//
+//   brand:<input   id="brand" type="text"  value="" required=""></input><br><br>
+//   color:<input   id="color" type="text"  value="" required=""></input><br><br>
+//   size:<input   id="size" type="text"  value="" required=""></input><br><br>
+//   price:<input   id="price" type="text"  value="" required=""></input><br><br>
+//   in_stock:<input   id="in_stock" type="text"  value="" required=""></input>
+//   <button id="add" type="submit" required="">add</button>
+// </div>
+//
+// <p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
+//
+// <script>
+// function myFunction() {
+//     var x = document.getElementById("myDIV");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+// </script> -->
+//
