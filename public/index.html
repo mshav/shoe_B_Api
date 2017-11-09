@@ -76,6 +76,17 @@ text-align:center;
 margin-left: 134px;
 
 }
+h3{
+  margin-left: 610px;
+  color: grey;
+}
+.buttonA{
+  margin-left:800px;
+}
+table{
+  table-layout fixed
+    word-wrap break-word
+}
 
 </style>
 </head>
@@ -99,10 +110,10 @@ margin-left: 134px;
    <br>
   <!-- <br>class="btn btn-info btn-sm" -->
   <br>
-  <button width="45px" class="btn btn-danger btn-sm"  id="search" type="button" name="search">search:brand</button>
+  <button width="45px" class="btn btn-danger btn-sm"  id="search" type="button" name="search">Brand</button>
   <input id="inputBox" type="text" value=""></input>
 
-   <button class="btn btn-warning  btn-sm"   id="searchS" type="button" name="search">search:size</button>
+   <button class="btn btn-warning  btn-sm"   id="searchS" type="button" name="search">Size</button>
   <input id="inputSize" type="text" value=""></input>
 
   <div id="brandshow"></div>
@@ -111,26 +122,26 @@ margin-left: 134px;
 <br>
 <br>
 <script class="mysecTemplate" type="text/x-handlebars">
-<table width="60" class="table table-sm table-inverse">
+<table width="60" class="table table-sm table-inverse table table-striped table-hover table-bordered table-condensed "lenght=12px;>
   <thead>
     <tr>
-      <th>Brand</th>
-      <th>Color</th>
-      <th>Size</th>
-      <th>Price</th>
-      <th>Stock</th>
+      <th style="color:#ffcc00;">Brand</th>
+      <th style="color:#00cc66">Color</t>
+      <th style="color:#9999ff">Size</th>
+      <th style="color:#990099">Price</th>
+      <th style="color:#33cccc">Stock</th>
 
     </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color:#999966">
     {{#each shoedata}}
     <tr>
-      <td>{{brand}}</td>
-      <td>{{color}}</td>
-      <td>{{size}}</td>
-      <td>R{{price}}</td>
-      <td>{{in_stock}}</td>
-
+      <td style="color:black">{{brand}}</td>
+      <td style="color:black">{{color}}</td>
+      <td style="color:black">{{size}}</td>
+      <td style="color:black">R{{price}}</td>
+      <td style="color:black">{{in_stock}} </td>
+      <td><button    type="submit"  onclick="test({{_id}})">buy</button></td>
 
 
 
@@ -140,7 +151,7 @@ margin-left: 134px;
   </tbody>
 </table>
 </script>
-<button type="button" class="btn btn-info btn-lg btn-sm" data-toggle="modal" data-target="#myModal">Add stock</button>
+<button id="buttonA" type="button" class="btn btn-info btn-lg btn-sm" data-toggle="modal" data-target="#myModal" >Add stock</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -153,12 +164,12 @@ margin-left: 134px;
           <h4 class="modal-title">Welcome to the add stock site</h4>
         </div>
         <div class="modal-body">
-          Brand:<input   id="brand" type="text"  value="" required=""></input><br><br>
-          Color:<input   id="color" type="text"  value="" required=""></input><br><br>
-          Size:<input   id="size" type="text"  value="" required=""></input><br><br>
-          Price:<input   id="price" type="text"  value="" required=""></input><br><br>
-          Stock:<input   id="in_stock" type="text"  value="" required=""></input><br><br>
-          <button  class="btn btn-primary" id="add" type="submit" required="">add</button>
+          Brand:<input   id="brand" type="text"  value=""></input><br><br>
+          Color:<input   id="color" type="text"  value="" ></input><br><br>
+          Size:<input   id="size" type="text"  value="" ></input><br><br>
+          Price:<input   id="price" type="text"  value="" ></input><br><br>
+          Stock:<input   id="in_stock" type="text"  value="" ></input><br><br>
+          <button  class="btn btn-primary" id="add" type="submit" required="" onclick="addStock()">add</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>

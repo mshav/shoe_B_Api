@@ -1,107 +1,133 @@
-$(function() {
-// my template
-var mysecTemplate = document.querySelector(".mysecTemplate").innerHTML;
-var Table = Handlebars.compile(mysecTemplate);
-// my empty div
-var showTable = document.getElementById('showTable')
-var brand = document.getElementById('brand')
-var color = document.getElementById('color')
-var size = document.getElementById('size')
-var price = document.getElementById('price')
-var in_stock = document.getElementById('in_stock')
-var search =document.getElementById('search')
-var inputBox = document.getElementById("inputBox")
+// $(function() {
+  // my template
+  var mysecTemplate = document.querySelector(".mysecTemplate").innerHTML;
+  var Table = Handlebars.compile(mysecTemplate);
+  // my empty div
+  var showTable = document.getElementById('showTable')
+  // var brand = document.getElementById('brand')
+  // var color = document.getElementById('color')
+  // var size = document.getElementById('size')
+  // var price = document.getElementById('price')
+  // var in_stock = document.getElementById('in_stock')
+  var search = document.getElementById('search')
+  var inputBox = document.getElementById("inputBox")
+
+function showAllStock() {
+  $.ajax({
+    type: "GET",
+    url: '/shoe/api',
+    dataType: 'json',
+    success: function(data) {
+
+      showTable.innerHTML = Table({
+        shoedata: data.data
+      })
+
+    }
+  })
+
+}
+showAllStock();
+
+  // $('#add').on("click", function() {
+function addStock() {
+  var brand = document.getElementById('brand');
+  var color = document.getElementById('color');
+  var size = document.getElementById('size');
+  var price = document.getElementById('price');
+  var in_stock = document.getElementById('in_stock');
+
+  var data = {
+    brand: brand.value,
+    color: color.value,
+    price: price.value,
+    in_stock: in_stock.value,
+    size: size.value
+  }
+  brand.value = "";
+  color.value = "";
+  price.value = "";
+  in_stock.value = "";
+  size.value = "";
 
 
-      $.ajax({
-        type: "GET",
-        url: '/shoe/api',
-        dataType: 'json',
-        success: function(data) {
+    $.ajax({
+      type: "POST",
+      url: '/api/shoe',
+      data : data,
+      dataType: 'json',
+      success: function(data) {
+        showAllStock();
+
+        }
 
 
-          showTable.innerHTML = Table({
-            shoedata: data.data
-          })
+      })
 
+    }
+
+  //search button
+  $("#search").on("click", function() {
+    //text box
+    var inputBox = document.querySelector('#inputBox')
+    //pass the
+    var brandVal = inputBox.value;
+    $.ajax({
+      type: "GET",
+      url: "/api/shoe/brand/" + brandVal,
+      dataType: "json",
+      success: function(data) {
+        showTable.innerHTML = Table({
+          shoedata: data
+        })
       }
-        },
+    })
+  })
 
 
-      )
 
-$('#add').on("click", function(){
+  $("#searchS").on("click", function() {
+    var inputSize = document.querySelector("#inputSize")
+    var SizeVal = inputSize.value;
+    $.ajax({
 
-$.ajax({
-type: "POST",
-url: '/api/shoe',
-dataType: 'json',
-data:{
-brand:brand.value,
-color:color.value,
-price:price.value,
-in_stock:in_stock.value,
-size:size.value
-},
-success: function(data){
-showTable.innerHTML = Table({
+      type: "GET",
+      url: "/api/shoe/size/" + SizeVal,
+      dataType: "json",
+      success: function(data) {
+        showTable.innerHTML = Table({
 
-shoedata: data.data
+          shoedata: data
+        })
+      }
+    })
 
-})
+  })
 
+  })
 
-}
+function test() {
+  // var soldItem = req.params.value;
+   $.ajax({
+    type:"POST",
+    url:'/api/shoes/sold/' + id,
 
-})
+    success: function(data) {
+ console.log(data);
+      showTable.innerHTML = Table({
 
-})
-//search button
-$("#search").on("click", function(){
-  //text box
-   var inputBox = document.querySelector('#inputBox')
-   //pass the text-box variable
-   var brandVal = inputBox.value;
- $.ajax({
- type:"GET",
- url:"/api/shoe/brand/" + brandVal,
- dataType: "json",
-success: function(data){
- showTable.innerHTML = Table({
-
- shoedata:data
+        shoedata: data
+      })
+     }
  })
 }
-})
-})
-
-
- $("#searchS").on("click",function(){
- var inputSize = document.querySelector("#inputSize")
- var SizeVal = inputSize.value;
- $.ajax({
-
- type:"GET",
- url:"/api/shoe/size/" + SizeVal,
- dataType:"json",
- success: function(data){
-showTable.innerHTML = Table({
-
-shoedata:data
-})
- }
- })
-
-})
+// }
 
 
 
 
 
 
-
-
-
-// window.location.reload(1)
-
-})
+  // window.location.reload(1)
+///api/shoes/sold/:id
+// })
