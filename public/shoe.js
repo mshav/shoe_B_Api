@@ -4,11 +4,11 @@
   var Table = Handlebars.compile(mysecTemplate);
   // my empty div
   var showTable = document.getElementById('showTable')
-  // var brand = document.getElementById('brand')
-  // var color = document.getElementById('color')
-  // var size = document.getElementById('size')
-  // var price = document.getElementById('price')
-  // var in_stock = document.getElementById('in_stock')
+  var brand = document.getElementById('brand')
+  var color = document.getElementById('color')
+  var size = document.getElementById('size')
+  var price = document.getElementById('price')
+  var in_stock = document.getElementById('in_stock')
   var search = document.getElementById('search')
   var inputBox = document.getElementById("inputBox")
 
@@ -89,6 +89,7 @@ function addStock() {
   $("#searchS").on("click", function() {
     var inputSize = document.querySelector("#inputSize")
     var SizeVal = inputSize.value;
+    size.value = "";
     $.ajax({
 
       type: "GET",
@@ -104,23 +105,28 @@ function addStock() {
 
   })
 
-  })
 
-function test() {
-  // var soldItem = req.params.value;
-   $.ajax({
-    type:"POST",
-    url:'/api/shoes/sold/' + id,
 
-    success: function(data) {
- console.log(data);
-      showTable.innerHTML = Table({
+$(document).on("click", "#sell", function(e){
+var target = e.target;
+var shoeId = target.value;
+$.ajax({
+  type:"POST",
+  url:'/api/shoes/sold/' + shoeId,
 
-        shoedata: data
-      })
-     }
- })
-}
+  success: function(data) {
+    showAllStock()
+    // showTable.innerHTML = Table({
+
+      // shoedata: data
+    // })
+  }
+})
+console.log(shoeId);
+// window.location.reload(10)
+})
+ // console.log(data);
+// }
 // }
 
 
@@ -128,6 +134,5 @@ function test() {
 
 
 
-  // window.location.reload(1)
 ///api/shoes/sold/:id
 // })

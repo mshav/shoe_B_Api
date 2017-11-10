@@ -1,5 +1,5 @@
 module.exports = function(models) {
-
+ const objectId = require('mongodb').objectId;
   const home = function(req, res, done) {
 
     models.Shoe.find({}, function(err, result) {
@@ -104,7 +104,7 @@ res.json(result)
 
 const stockReduce = function(req, res, done){
   var soldId = req.params.id
-  models.Shoe.findOneAndUpdate({_id:soldId},{$inc:{in_stock :-1}},{upSet:false}, function(err, result){
+  models.Shoe.findOneAndUpdate({_id:soldId},{$inc:{in_stock :-1}},{upsert:false}, function(err, result){
 
 if (err) {
 
