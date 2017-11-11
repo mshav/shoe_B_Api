@@ -83,6 +83,7 @@ function addStock() {
       }
     })
   })
+  showAllStock();
 
 
 
@@ -104,6 +105,7 @@ function addStock() {
     })
 
   })
+  showAllStock()
 
 
 
